@@ -11,7 +11,7 @@ NVCCFLAGS = -c -m64 -O0 --compiler-options -Wall -Xptxas -O0,-v
 OBJS = wrappers.o vecScalarMult.o h_vecScalarMult.o d_vecScalarMult.o
 .SUFFIXES: .cu .o .h 
 .cu.o:
-	$(NVCC) $(CC_FLAGS) $(NVCCFLAGS) $(GENCODE_FLAGS) $< -o $@
+	$(NVCC) $(NVCCFLAGS) $(GENCODE_FLAGS) $< -o $@
 
 vecScalarMult: $(OBJS)
 	$(CC) $(OBJS) -L/usr/local/cuda/lib64 -lcuda -lcudart -o vecScalarMult
